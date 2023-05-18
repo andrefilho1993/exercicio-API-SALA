@@ -24,7 +24,7 @@ module.exports = {
             nome: req.body.nome,
             idade: req.body.idade,
             tipo: req.body.tipo,
-            status: req.body.status,
+            status_dep: req.body.status_dep,
             id_funcionario: req.body.id_funcionario
         })
         res.status(201).send({
@@ -37,7 +37,7 @@ module.exports = {
             nome: req.body.nome,
             idade: req.body.idade,
             tipo: req.body.tipo,
-            status: req.body.status,
+            status_dep: req.body.status_dep,
             id_funcionario: req.body.id_funcionario
         },
             {

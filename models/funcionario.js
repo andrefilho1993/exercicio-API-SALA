@@ -6,9 +6,8 @@ const sequelize = require('../db/db');
 module.exports = (sequelize, DataTypes) => {
     class Funcionarios extends Model { } 
 
-    Funcionario.init({        
+    Funcionarios.init({        
         nome: DataTypes.STRING(50),
-        idade: DataTypes.INTEGER,
         endereco: DataTypes.STRING(20),
         telefone: DataTypes.BIGINT,
         cargo: DataTypes.STRING(25),

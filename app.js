@@ -5,14 +5,16 @@ const app = express();
 const departamentoRoute = require('./routes/departamentoRoute')
 const funcionarioRoute = require('./routes/funcionarioRoute')
 const dependenteRoute = require('./routes/dependenteRoute')
+const projetoRoute = require('./routes/projetoRoute')
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/departamento', departamentoRoute);
-app.use('/funcionario', funcionarioRoute);
-app.use('/dependente', dependenteRoute);
+app.use('/departamentos', departamentoRoute);
+app.use('/funcionarios', funcionarioRoute);
+app.use('/dependentes', dependenteRoute);
+app.use('/projetos', projetoRoute);
 
 app.use((req, res, next) => {
     const erro = new Error('Rota não encontrada.')

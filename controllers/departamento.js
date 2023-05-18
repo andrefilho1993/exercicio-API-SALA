@@ -51,7 +51,7 @@ module.exports = {
     },
 
     async delete(req, res) {
-        await Departamento(sequelize,Sequelize.DataTypes).destroy({
+        await Departamentos(sequelize,Sequelize.DataTypes).destroy({
             where: { id: req.params.id }
         })
         res.status(200).send({
