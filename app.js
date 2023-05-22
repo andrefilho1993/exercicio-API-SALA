@@ -1,27 +1,28 @@
+// Importar o módulo Express
 const express = require('express');
 
+// Criar uma instância do aplicativo Express
 const app = express();
 
-const departamentoRoute = require('./routes/departamentoRoute')
-const funcionarioRoute = require('./routes/funcionarioRoute')
-const dependenteRoute = require('./routes/dependenteRoute')
-const projetoRoute = require('./routes/projetoRoute')
+// Importar os módulos de rotas para cada entidade do sistema
+const quartosRoute = require('./routes/quartosRoute')
+const reservasRoute = require('./routes/reservasRoute')
 
+// Configurar o aplicativo para analisar requisições com formato JSON
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: false }))
+// Definir as rotas para cada entidade do sistema
+app.use('/quartos', quartosRoute);
+app.use('/reservas', reservasRoute);
 
-app.use('/departamentos', departamentoRoute);
-app.use('/funcionarios', funcionarioRoute);
-app.use('/dependentes', dependenteRoute);
-app.use('/projetos', projetoRoute);
-
+// Middleware para tratar rotas não encontradas
 app.use((req, res, next) => {
     const erro = new Error('Rota não encontrada.')
     erro.status = 404;
     next(erro)
 });
 
+// Middleware para tratar erros
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     return res.send({

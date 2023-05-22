@@ -2,26 +2,26 @@ const express = require('express');
 
 const router = express.Router();
 
-const projetoController = require('../controllers/projeto');
+const reservasController = require('../controllers/reservas');
 
 router.get('/', (req, res) => {
-    projetoController.getAll(req, res)
+    reservasController.getAll(req, res)
 });
 
 router.get('/:id', (req, res) => {
-    projetoController.get(req, res)
+    reservasController.get(req, res)
 });
 
 router.post('/', (req, res) => {
-    projetoController.create(req, res)
+    reservasController.create(req, res)
 });
 
 router.put('/:id', (req, res) => {
-    projetoController.update(req, res)
+    reservasController.update(req, res)
 });
 
 router.delete('/:id', (req, res) => {
-    projetoController.delete(req, res)
+    reservasController.delete(req, res)
 });
 
 module.exports = router;
